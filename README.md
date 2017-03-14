@@ -1,5 +1,11 @@
-1 - clone this repo
-2 - go to [your name]FloodingCity.java
-3 - implement your algorithm
-4 - go to [your name]FloodingCityTest.java
-5 - run tests. If it doesnot pass go step 2.
+1 - Clone this repo
+
+2 - Go to or create [your name][problem name].java
+
+3 - Implement your algorithm
+
+4 - Go to or create [your name][problem name].java
+
+5 - Run tests.
+ 
+6 - If tests does not pass, go to step 2.
