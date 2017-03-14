@@ -6,6 +6,7 @@ package xyz.korayucar.algorithmstudy.floodingcity;
  *
  * @author koray, @date 3/14/17 2:17 PM
  */
+@FunctionalInterface
 public interface FloodingCity {
 
     int getWaterCapacity(int[] city);

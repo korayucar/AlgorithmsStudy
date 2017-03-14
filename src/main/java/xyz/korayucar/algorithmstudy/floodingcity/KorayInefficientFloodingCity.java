@@ -11,6 +11,8 @@ import java.util.PriorityQueue;
  * found by subtracting the building height itself. The water column height is accumulated for each
  * building.
  *
+ * This is an O(nlgn) time, O(n) space implementation of the basic idea.
+ *
  * Created by koray on 14/03/17.
  *
  */
@@ -20,6 +22,8 @@ public class KorayInefficientFloodingCity implements FloodingCity {
 
     @Override
     public int getWaterCapacity(int[] city) {
+        if(city == null)
+            throw new NullPointerException();
 
         int capacity = 0;
         //using both with reverse comparators to achive max priority queue

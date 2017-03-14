@@ -27,15 +27,21 @@ public abstract class AbstractFloodingCityTest {
     }
 
     @Test
+    public void testVeryLongBuildings() {
+        int[] city = {1, 1<<10, 1<<15, 1, 1<<15, 1<<10, 4};
+        assertCapacity(city, (1<<15) -1);
+    }
+
+    @Test
     public void testBigCity() {
         int[] city = {2, 6, 3, 5, 2, 8, 1, 4, 2, 2, 5, 3, 5, 7, 4, 1};
         assertCapacity(city, 35);
     }
 
-    @Test(timeout = 3000)
+    @Test(timeout = 1000)
     public void testVeryBigData() {
         int[] city = new int[100000];
-        for (int i = 1; i < 100000; i += 2)
+        for (int i = 1; i < city.length; i += 2)
             city[i] = 1;
         assertCapacity(city, 49999);
     }
