@@ -9,3 +9,6 @@
 5 - Run tests.
  
 6 - If tests does not pass, go to step 2.
+
+furture challenges of interest
+http://www.geeksforgeeks.org/maximum-value-array-m-range-increment-operations/
