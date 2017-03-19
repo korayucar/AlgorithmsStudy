@@ -2,8 +2,6 @@ package xyz.korayucar.algorithmstudy.maximum.consecutive.sum;
 
 import org.junit.Test;
 
-import xyz.korayucar.algorithmstudy.floodingcity.FloodingCity;
-
 import static org.junit.Assert.assertEquals;
 
 /*
@@ -39,7 +37,7 @@ public abstract class AbstractMaximumConsequtiveSumTest {
     public void performanceTest() {
         long [] arr = new long[1000000];
         for(int i = 0;i < arr.length;i++ )
-            arr[i] = i%3 == 0 ? -1000 : 2000;
+            arr[i] = i%3 != 0 ? -1000 : 2000;
         assertMaxSum(arr, 2000);
     }
 

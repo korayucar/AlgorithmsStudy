@@ -1,6 +1,8 @@
 package xyz.korayucar.algorithmstudy.floodingcity;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.Timeout;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,6 +10,9 @@ import static org.junit.Assert.assertEquals;
  * @author koray, @date 3/14/17 2:17 PM
  */
 public abstract class AbstractFloodingCityTest {
+
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(1);
 
     @Test
     public void testTrivialCase() {
@@ -38,15 +43,13 @@ public abstract class AbstractFloodingCityTest {
         assertCapacity(city, 35);
     }
 
-    @Test(timeout = 1000)
+    @Test
     public void testVeryBigData() {
         int[] city = new int[100000];
         for (int i = 1; i < city.length; i += 2)
             city[i] = 1;
         assertCapacity(city, 49999);
     }
-
-
 
     private void assertCapacity(int[] city, int expected) {
         int capacity = createFloodingCity().getWaterCapacity(city);
