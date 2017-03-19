@@ -1,6 +1,8 @@
 package xyz.korayucar.algorithmstudy.maximum.consecutive.sum;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.Timeout;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,6 +10,12 @@ import static org.junit.Assert.assertEquals;
  * @author koray, @date 3/14/17 2:17 PM
  */
 public abstract class AbstractMaximumConsequtiveSumTest {
+
+
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(1);
+
+
     @Test
     public void maxSumIsZeroOnNonPositiveArray() {
         long [] arr = { -4 , -1,-3,-4, 0};
@@ -33,7 +41,7 @@ public abstract class AbstractMaximumConsequtiveSumTest {
         assertMaxSum(arr, 400);
     }
 
-    @Test(timeout = 2000)
+    @Test
     public void performanceTest() {
         long [] arr = new long[1000000];
         for(int i = 0;i < arr.length;i++ )
