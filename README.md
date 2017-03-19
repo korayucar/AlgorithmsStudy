@@ -12,3 +12,5 @@
 
 furture challenges of interest
 http://www.geeksforgeeks.org/maximum-value-array-m-range-increment-operations/
+
+https://www.hackerrank.com/challenges/gridland-metro
