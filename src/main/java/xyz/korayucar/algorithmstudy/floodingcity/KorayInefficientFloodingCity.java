@@ -25,6 +25,9 @@ public class KorayInefficientFloodingCity implements FloodingCity {
         if(city == null)
             throw new NullPointerException();
 
+        if(city.length <= 2)
+            return 0;
+
         int capacity = 0;
         //using both with reverse comparators to achive max priority queue
         PriorityQueue<Integer> left = new PriorityQueue<>(city.length, Comparator.<Integer>reverseOrder());
@@ -37,8 +40,8 @@ public class KorayInefficientFloodingCity implements FloodingCity {
         for (int i : city) {
             right.remove(i);
             left.add(i);//note that left side include building itself
-            int l = left.peek() == null ? 0 : left.peek(); // max element on the left
-            int r = right.peek() == null ? 0 : right.peek(); //max element on the right
+            int l = left.peek(); // max element on the left
+            int r = right.size() > 0 ? right.peek() : 0; //max element on the right
             capacity += Math.max(0, Math.min(l, r) - i);
         }
         return capacity;

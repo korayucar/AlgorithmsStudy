@@ -26,17 +26,20 @@ public class KorayFloodingCity implements FloodingCity {
 
         //keep the maximum height to the left of the building at index(exclusive)
         int[] maxToLeft = new int[city.length];
+        int[] maxToRight = new int[city.length];
 
         //calculate the height of the maximum buildig to left
         for(int i = 1 ; i < city.length ; i++)
             maxToLeft[i] = Math.max(city[i-1],maxToLeft[i-1]);
 
+
+        for(int i = city.length -2 ; i >=0; i--)
+            maxToRight[i] = Math.max(city[i+1],maxToRight[i+1]);
+
         //iterate from right to left find the amount of water in column.
         int capacity = 0;
-        int maxToRight = 0;
         for(int i = city.length -1 ; i >=0; i--) {
-            maxToRight = Math.max(maxToRight, city[i]);
-            capacity += Math.max(Math.min(maxToLeft[i], maxToRight) - city[i], 0);
+            capacity += Math.max(Math.min(maxToLeft[i], maxToRight[i]) - city[i], 0);
         }
 
         return capacity;

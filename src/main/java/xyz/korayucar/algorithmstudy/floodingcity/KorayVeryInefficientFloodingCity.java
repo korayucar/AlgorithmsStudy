@@ -9,16 +9,18 @@ public class KorayVeryInefficientFloodingCity implements FloodingCity{
     public int getWaterCapacity(int[] city) {
         if(city == null)
             throw new NullPointerException();
-        if(city.length < 2)
+        if(city.length <= 2)
             return 0;
         int capacity = 0;
-        for(int i = 0; i < city.length ; i++)
+        for(int i = 1; i < city.length-1 ; i++)
         {
+            if(city[i] < 0)
+                //TODO test this
+                throw new IllegalArgumentException();
             int maxToLeft = getMaxInRange(city, 0,i);
             int maxToRight = getMaxInRange(city, i+1,city.length);
             capacity += Math.max(0, Math.min(maxToLeft,maxToRight) - city[i]);
         }
-
         return capacity;
     }
 
@@ -29,4 +31,5 @@ public class KorayVeryInefficientFloodingCity implements FloodingCity{
         }
         return maxInrange;
     }
+
 }
