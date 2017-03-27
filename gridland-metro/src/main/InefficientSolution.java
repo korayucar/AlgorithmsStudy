@@ -7,10 +7,15 @@ package main;
 public class InefficientSolution {
 
     public static void main(String[] args) {
+        //expected 9
         int[][] inputParams = {{4,4,3}, {2,2,3}, {3,1,4}, {4,4,4}};
-        int i = calculateLampPostCount(inputParams);
 
-        System.out.println(i);
+        System.out.println(calculateLampPostCount(inputParams));
+
+        //ecpected 8
+        inputParams = new int[][]{{4, 5, 7}, {1, 1, 2}, {1, 4, 4}, {2, 1, 2}, {2, 2, 3}, {2, 4, 5}, {4, 1, 2}, {4, 4, 5}};
+
+        System.out.println(calculateLampPostCount(inputParams));
     }
 
     private static int calculateLampPostCount(int[][] inputParams) {
