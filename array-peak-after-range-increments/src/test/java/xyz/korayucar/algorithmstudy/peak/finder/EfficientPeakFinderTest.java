@@ -18,8 +18,8 @@ public class EfficientPeakFinderTest extends PeakFinderTest {
     public void simplePeakFinder_incrementedFewTimes_givesExpectedPeak() throws Exception {
         PeakFinder peakFinder = createPeakFinder();
         peakFinder.init(1<<30);
-        for(int i = 0; i < 100000; i++)
+        for(int i = 1; i < 100000; i++)
             peakFinder.increment(0, i, 1<<12);
-        assertEquals(100000 * (1<<12), peakFinder.getMax());
+        assertEquals(99999 * (1<<12), peakFinder.getMax());
     }
 }

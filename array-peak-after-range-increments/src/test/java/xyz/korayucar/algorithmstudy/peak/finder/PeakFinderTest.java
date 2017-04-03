@@ -12,8 +12,13 @@ public abstract class PeakFinderTest {
     abstract PeakFinder createPeakFinder();
 
     @Test(expected = IllegalStateException.class)
-    public void uninitializedPeakFinder_attemptToIncrement_throwsIllegalStateException() throws Exception {
+    public void uninitializedPeakFinder_AttemptToIncrement_ThrowsIllegalStateException() throws Exception {
         createPeakFinder().increment(0,0,1);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void uninitializedPeakFinder_AttemptToGetMax_ThrowsIllegalStateException() throws Exception {
+        createPeakFinder().getMax();
     }
 
     @Test(expected = IllegalStateException.class)
@@ -24,21 +29,21 @@ public abstract class PeakFinderTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void newlyCreatedPeakFinder_attemptToIncrementWithIllegalArguments_throwsIllegalArgumentException() throws Exception {
+    public void newlyCreatedPeakFinder_AttemptToIncrementWithIllegalArguments_ThrowsIllegalArgumentException() throws Exception {
         PeakFinder peakFinder= createPeakFinder();
         peakFinder.init(2);
         peakFinder.increment(1, 0, 1);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void newlyCreatedPeakFinder_attemptToIncrementWithOutOfBoundStartIndex_throwsIndexOutOfBoundsException() throws Exception {
+    public void newlyCreatedPeakFinder_AttemptToIncrementWithOutOfBoundStartIndex_ThrowsIndexOutOfBoundsException() throws Exception {
         PeakFinder peakFinder= createPeakFinder();
         peakFinder.init(1);
         peakFinder.increment(-1, 0, 1);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void newlyCreatedPeakFinder_attemptToIncrementWithOutOfBoundEndIndex_throwsIndexOutOfBoundsException() throws Exception {
+    public void newlyCreatedPeakFinder_AttemptToIncrementWithOutOfBoundEndIndex_ThrowsIndexOutOfBoundsException() throws Exception {
         PeakFinder peakFinder= createPeakFinder();
         peakFinder.init(1);
         peakFinder.increment(0, 2, 1);
@@ -46,7 +51,7 @@ public abstract class PeakFinderTest {
 
 
     @Test
-    public void simplePeakFinder_incrementedFewTimes_givesExpectedPeak() throws Exception {
+    public void simplePeakFinder_IncrementedFewTimes_GivesExpectedPeak() throws Exception {
         PeakFinder peakFinder = createPeakFinder();
         peakFinder.init(6);
         peakFinder.increment(0, 1, 100);
@@ -57,18 +62,18 @@ public abstract class PeakFinderTest {
     }
 
     @Test
-    public void simplePeakFinder_incrementedFewTimes_givesExpectedPeak2() throws Exception {
+    public void simplePeakFinder_IncrementedFewTimes_GivesExpectedPeak2() throws Exception {
         PeakFinder peakFinder = createPeakFinder();
         peakFinder.init(6);
         peakFinder.increment(1, 2, 603);
-        peakFinder.increment(0, 0, 286);
-        peakFinder.increment(3, 3, 882);
-        assertEquals(882, peakFinder.getMax());
+        peakFinder.increment(0, 1, 286);
+        peakFinder.increment(3, 4, 882);
+        assertEquals(889, peakFinder.getMax());
 
     }
 
     @Test(timeout = 2000)
-    public void moderatelyLargeArray_TwoOverlappingIncrements_givesExpectedPeakInTime() throws Exception {
+    public void moderatelyLargeArray_TwoOverlappingIncrements_GivesExpectedPeakInTime() throws Exception {
         PeakFinder peakFinder = createPeakFinder();
         peakFinder.init(600000);
         peakFinder.increment(1, 599999, 1<<25);

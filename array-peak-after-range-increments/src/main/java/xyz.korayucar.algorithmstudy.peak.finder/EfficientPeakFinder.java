@@ -26,18 +26,18 @@ public class EfficientPeakFinder implements PeakFinder {
 
     @Override
     public void increment(int startIndexInc, int endIndexInc, int delta) {
-        if(!initialized)
-            throw new IllegalStateException("EfficientPeakFinder not initialized.");
+        checkInitialized();
         if (startIndexInc < 0 || startIndexInc >= dataSize || endIndexInc < 0 || endIndexInc > dataSize)
             throw new IndexOutOfBoundsException("Indices are not in range.");
-        if (endIndexInc < startIndexInc)
-            throw new IllegalArgumentException("Start index cannot be bigger than end index");
+        if (endIndexInc <= startIndexInc)
+            throw new IllegalArgumentException("End index must be bigger.");
         operations.add(new Operation(delta, OperationType.INCREMENT, startIndexInc));
         operations.add(new Operation(delta, OperationType.DECREMENT, endIndexInc));
     }
 
     @Override
     public int getMax() {
+        checkInitialized();
         int peak = Integer.MIN_VALUE;
         int current = 0;
         while(!operations.isEmpty()) {
@@ -46,6 +46,11 @@ public class EfficientPeakFinder implements PeakFinder {
             peak = Math.max(peak, current);
         }
         return peak;
+    }
+
+    private void checkInitialized() {
+        if(!initialized)
+            throw new IllegalStateException("EfficientPeakFinder not initialized.");
     }
 
     private enum OperationType {

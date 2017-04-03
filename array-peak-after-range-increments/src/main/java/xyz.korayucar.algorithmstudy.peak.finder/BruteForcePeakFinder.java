@@ -34,8 +34,8 @@ public class BruteForcePeakFinder implements PeakFinder {
         checkInitialized();
         if (startIndexInc < 0 || startIndexInc >= data.length || endIndexInc < 0 || endIndexInc > data.length)
             throw new IndexOutOfBoundsException("Indices are not in range.");
-        if (endIndexInc < startIndexInc)
-            throw new IllegalArgumentException("Start index cannot be bigger than end index");
+        if (endIndexInc <= startIndexInc)
+            throw new IllegalArgumentException("End index must be bigger.");
     }
 
 
