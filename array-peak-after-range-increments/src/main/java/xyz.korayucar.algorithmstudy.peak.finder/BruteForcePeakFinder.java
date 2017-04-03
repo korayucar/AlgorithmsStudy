@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class BruteForcePeakFinder implements PeakFinder {
 
-    int [] data;
+    int[] data;
 
     @Override
     public void init(int arrayLength) {
@@ -34,7 +34,7 @@ public class BruteForcePeakFinder implements PeakFinder {
         checkInitialized();
         if (startIndexInc < 0 || startIndexInc >= data.length || endIndexInc < 0 || endIndexInc > data.length)
             throw new IndexOutOfBoundsException("Indices are not in range.");
-        if(endIndexInc < startIndexInc)
+        if (endIndexInc < startIndexInc)
             throw new IllegalArgumentException("Start index cannot be bigger than end index");
     }
 
