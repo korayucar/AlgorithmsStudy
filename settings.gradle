@@ -1,5 +1,6 @@
 rootProject.name = 'AlgorithmsAndDataStructuresStudy'
 include 'flooding-city'
 include 'maximum-consecutive-sum'
-include 'array-peak-after-range-xyz.korayucar.algorithmstudy.peak.finder'
+include 'gridland-metro'
+include 'array-peak-after-range-increments'
 

@@ -5,11 +5,9 @@ package xyz.korayucar.algorithmstudy.peak.finder;
  */
 public interface PeakFinder {
 
-
     void init(int arrayLength);
 
     void increment(int startIndexInc, int endIndexInc, int delta);
 
     int getMax();
-
 }

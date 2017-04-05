@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 /**
  * Created by koray on 03/04/17.
  */
-public class EfficientPeakFinder implements PeakFinder {
+public class MemoryEfficientPeakFinder implements PeakFinder {
 
     static final Comparator<Operation> operationComparator = Comparator.comparing(Operation::getIndex)
             .thenComparing(Operation::getOperationType);
@@ -50,7 +50,7 @@ public class EfficientPeakFinder implements PeakFinder {
 
     private void checkInitialized() {
         if(!initialized)
-            throw new IllegalStateException("EfficientPeakFinder not initialized.");
+            throw new IllegalStateException(getClass().getName() + " not initialized.");
     }
 
     private enum OperationType {
