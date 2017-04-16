@@ -4,4 +4,5 @@ include 'maximum-consecutive-sum'
 include 'gridland-metro'
 include 'array-peak-after-range-increments'
 include 'fibonacci'
+include 'gcd'
 
