@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-    private static final boolean INTERACTIVE = false;
+    private static final boolean INTERACTIVE = true;
     public static final BigInteger VERY_BIG_NUMBER =new BigInteger("182763597364593726358265386123861927356821657348");
 
     public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class Main {
             Random random = new Random();
             BigInteger a = new BigInteger("6");
             for (long i = 1; i < 20; i++) {
-                a = a.multiply(new BigInteger( ""+(random.nextInt(20)+10)));
+                a = a.multiply(new BigInteger( ""+(random.nextInt(20)+2)));
                 timeGcd(gcd, a, VERY_BIG_NUMBER);
             }
         }
@@ -40,11 +40,11 @@ public class Main {
     private static void timeGcd(Gcd gcd, BigInteger a, BigInteger b) {
         Stopwatch timer = new Stopwatch().start();
         BigInteger gcdResult = gcd.gcdOf(a, b);
-        System.out.println(toGcdResult(a, b, gcdResult) + "Excecution took " + timer.stop());
+        System.out.println(toGcdResult(a, b, gcdResult) + "Execution took " + timer.stop());
     }
 
     private static String toGcdResult(BigInteger a, BigInteger b, BigInteger gcdResult) {
         String result = "Gcd of " + a + " and " + b + " is " + gcdResult;
-        return result + Strings.repeat(" ", Math.max(0, 180 - result.length())) + (result.length() > 180 ? "\n" : "");
+        return result + Strings.repeat(" ", Math.max(0, 80 - result.length())) + (result.length() > 80 ? "\n" : "");
     }
 }

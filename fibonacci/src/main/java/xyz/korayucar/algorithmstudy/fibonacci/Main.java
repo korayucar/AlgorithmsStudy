@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-    private static final boolean INTERACTIVE = true;
+    private static final boolean INTERACTIVE = false;
 
     public static void main(String[] args) {
         Fibonacci fibonacci = new BottomUpFibonacci();
@@ -22,22 +22,16 @@ public class Main {
                 timeFibonacciNumber(fibonacci, scanner.nextLong());
             }
         } else {
-            for (int i = 0; i < 300; i++)
+            for (int i = 0; i <= 300; i++)
                 timeFibonacciNumber(fibonacci, i);
         }
     }
 
 
-
-
-
-
-
-
     private static void timeFibonacciNumber(Fibonacci fibonacci, long index) {
         Stopwatch timer = new Stopwatch().start();
         BigInteger fibonacciNumber = fibonacci.getFibonacciNumberByIndex(index);
-        System.out.println(toFibonacciResult(index, fibonacciNumber) + "Excecution took " + timer.stop());
+        System.out.println(toFibonacciResult(index, fibonacciNumber) + "Execution took " + timer.stop());
     }
 
     private static String toFibonacciResult(long index, BigInteger fibonacciNumber) {
