@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  */
 public class Main {
 
-    private static final boolean INTERACTIVE = false;
+    private static final boolean INTERACTIVE = true;
     public static final List<String> INPUT_FILE_NAMES = Arrays.asList(
             "very_small_input.txt",
             "small_input.txt",

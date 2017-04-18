@@ -7,6 +7,7 @@ public class BruteForceMaximumPathSum implements MaximumPathSum {
 
     @Override
     public long getMaximumPathSum(long[][] numberTriangle) {
+        MaximumPathSumValidators.validateMaximumPathSumTriangle(numberTriangle);
         return getMaximumPathSum(numberTriangle, 0, 0);
     }
 
