@@ -2,7 +2,6 @@ package xyz.korayucar.algorithmstudy.pair.sum;
 
 import com.google.common.base.Stopwatch;
 
-import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -19,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        PairSum pairSum = new EfficientPairSum();
+        PairSum pairSum = null;// TODO insert your algorith here ie: new BruteForcePairSum();
         if(INTERACTIVE){
             Scanner scanner = new Scanner(System.in);
             while(true){
@@ -36,9 +35,9 @@ public class Main {
         else {
 
             Random random = new Random();
-            for(int i = 1,k=1; i < (1<<30); i *=2,k++ ) {
+            for(int i = 1,k=1; i < (1<<30); i <<=1,k++ ) {
 //                System.out.print("Trying with input size " + i + " ");
-                System.out.print(   k+" " );
+                System.out.print(   i+" " );
                 long[] arr = new long[i];
                 for(int j =0;j<i;j++)
                     arr[j] = random.nextLong()%300+1;
