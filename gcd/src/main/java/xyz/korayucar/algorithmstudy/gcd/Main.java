@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-    private static final boolean INTERACTIVE = true;
+    private static final boolean INTERACTIVE = false;
     public static final BigInteger VERY_BIG_NUMBER =new BigInteger("182763597364593726358265386123861927356821657348");
 
     public static void main(String[] args) {
