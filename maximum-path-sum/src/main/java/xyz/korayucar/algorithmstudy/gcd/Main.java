@@ -24,7 +24,7 @@ public class Main {
     );
 
     public static void main(String[] args) {
-        MaximumPathSum maximumPathSum = new BottomUpMaximumPathSum();
+        MaximumPathSum maximumPathSum = null;// insert your algorithm here i.e. "new BottomUpMaximumPathSum();"
         if (INTERACTIVE) {
             Scanner scanner = new Scanner(System.in);
             List<String> inputLines = new ArrayList<>();
