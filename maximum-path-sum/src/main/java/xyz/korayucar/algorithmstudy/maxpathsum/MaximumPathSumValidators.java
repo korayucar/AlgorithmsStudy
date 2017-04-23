@@ -1,4 +1,4 @@
-package xyz.korayucar.algorithmstudy.gcd;
+package xyz.korayucar.algorithmstudy.maxpathsum;
 
 /**
  * @author koray

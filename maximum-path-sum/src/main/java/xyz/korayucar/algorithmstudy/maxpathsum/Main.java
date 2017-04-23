@@ -1,4 +1,4 @@
-package xyz.korayucar.algorithmstudy.gcd;
+package xyz.korayucar.algorithmstudy.maxpathsum;
 
 import com.google.common.base.Stopwatch;
 
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  */
 public class Main {
 
-    private static final boolean INTERACTIVE = true;
+    private static final boolean INTERACTIVE = false;
     public static final List<String> INPUT_FILE_NAMES = Arrays.asList(
             "very_small_input.txt",
             "small_input.txt",
@@ -24,7 +24,7 @@ public class Main {
     );
 
     public static void main(String[] args) {
-        MaximumPathSum maximumPathSum = null;// insert your algorithm here i.e. "new BottomUpMaximumPathSum();"
+        MaximumPathSum maximumPathSum = new BottomupMaxPathSum();
         if (INTERACTIVE) {
             Scanner scanner = new Scanner(System.in);
             List<String> inputLines = new ArrayList<>();
